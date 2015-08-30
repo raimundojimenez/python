@@ -1,0 +1,60 @@
+#Fibonacci
+lst = [0, 1]
+rep = 40
+for i in range(rep) :
+    lst.append(lst[-1]+lst[-2])
+print lst
+
+---
+
+Operations:
+
+list
+[]=
+range
+a_list.append
+a_list.extend
+a_list.insert
+a_list.remove
+a_list.pop
+a_list.reverse
+a_list.sort
++
+*
+[]
+[:]
+[::]
+a_seq.index
+a_seq.count
+random.shuffle
+in
+not in
+len
+sum
+max
+min
+zip
+sorted
+map
+filter
+reduce
+any
+all
+a_str.join
+enumerate
+<
+<=
+>
+>=
+==
+!=
+is
+is not
+type
+isinstance
+dir
+hasattr
+str
+repr
+
+---
