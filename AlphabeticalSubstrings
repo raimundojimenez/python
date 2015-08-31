@@ -1,0 +1,19 @@
+s = 'azcbobobegghakl'
+
+pletter = s[0]      #PreviousLetter
+lstr = cstr = '' # LongestString, CurrentString
+
+for letter in s:
+    if letter >= pletter:
+        cstr += letter
+    elif len(cstr)>len(lstr):
+        lstr = cstr
+        cstr = letter
+    else:
+        cstr = letter
+    pletter = letter
+
+if len(cstr)>len(lstr):
+    lstr = cstr
+        
+print 'Longest substring in alphabetical order is:', lstr
