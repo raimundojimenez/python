@@ -14,3 +14,14 @@ print 'Number of times bob occurs is:', ntimes
 
 ---
 
+sstr = 'bob'
+ntimes = 0
+spos = 0
+
+spos = s.find(sstr, spos)
+
+while (spos >=0):
+    ntimes+=1
+    spos = s.find(sstr, spos+1)
+        
+print 'Number of times bob occurs is:', ntimes
