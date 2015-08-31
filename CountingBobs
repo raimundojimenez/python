@@ -1,0 +1,8 @@
+s = 'azcbobobegghakl'
+
+sstr = 'bob'
+ntimes = 0
+
+ntimes = s.count(sstr)
+
+print 'Number of times bob occurs is:', ntimes
