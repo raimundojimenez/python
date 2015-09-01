@@ -1,0 +1,14 @@
+# Notice how if we have two print statements                
+print "Hi"
+print "there"
+
+# The output will have each string on a separate line:                
+Hi
+there
+                
+# Now try ading a comma after the print statement:
+print "Hi",
+print "there"
+                
+# The output will place the subsequent string on the same line:
+Hi there
