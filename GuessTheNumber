@@ -1,0 +1,23 @@
+# Paste your code into this box
+guess = 50
+top = 100
+botton = 0
+resp = ''
+
+print "Please think of a number between 0 and 100!"
+
+while resp != 'c':
+    print 'Is your secret number ' + str(guess) + '?'
+    resp = raw_input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. : ")
+    if resp == 'h':
+        top = guess
+        guess = (top - botton) / 2 + botton
+    elif resp == 'l':
+        botton = guess
+        guess = (top - botton) / 2 + botton
+    elif resp == 'c':
+        print "Game over. Your secret number was: " + str(guess)
+        continue
+    else:
+       print 'Sorry, I did not understand your input.'
+   
