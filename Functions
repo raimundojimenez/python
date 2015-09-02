@@ -1,0 +1,150 @@
+def clip(lo, x, hi):
+    '''
+    Takes in three numbers and returns a value based on the value of x.
+    Returns:
+     - lo, when x < lo
+     - hi, when x > hi
+     - x, otherwise
+    '''
+    # Your code here
+    return min(hi,max(lo,x))
+
+def evalQuadratic(a, b, c, x):
+    '''
+    a, b, c: numerical values for the coefficients of a quadratic equation
+    x: numerical value at which to evaluate the quadratic.
+    '''
+    # Your code here
+    return a * x**2 + b * x + c
+
+def square(x):
+    '''
+    x: int or float.
+    '''
+    # Your code here
+    return x**2
+
+def odd(x):
+    '''
+    x: int or float.
+
+    returns: True if x is odd, False otherwise
+    '''
+    # Your code here
+    return (x%2)==1
+
+def isVowel(char):
+    '''
+    char: a single letter of any case
+
+    returns: True if char is a vowel and False otherwise.
+    '''
+    # Your code here
+    return char in "aeiouAEIOU"
+
+def isVowel(char):
+    '''
+    char: a single letter of any case
+
+    returns: True if char is a vowel and False otherwise.
+    '''
+    # Your code here
+    return "aeiouAEIOU".find(char) >=0
+
+def credit_card(balance, annualInterestRate, monthlyPaymentRate) :
+    """
+    balance : float, outstanding balance on the credit card
+    annualInterestRate : annual interest rate as a decimal
+    monthlyPaymentRate : minimum monthly payment rate as a decimal
+    """
+    
+    MONTHS = 12
+    
+    monthlyInterestRate = annualInterestRate / 12.0
+    totalPaid = 0
+        
+    for month in range(MONTHS):
+        monthlyPayment = round(balance * monthlyPaymentRate,2)
+        totalPaid += monthlyPayment
+        unpaidBalance = balance - monthlyPayment
+        balance = unpaidBalance * (1 + monthlyInterestRate)
+        print "Month:", month+1
+        print "Minimum monthly payment:", monthlyPayment
+        print "Remaining balance:", round(balance, 2)
+        
+    print "Total paid:", totalPaid
+    print "Remaining balance:", round(balance, 2)
+
+def payment12_10(balance, annualInterestRate) :
+    """
+    balance : float, outstanding balance on the credit card
+    annualInterestRate : float, annual interest rate as a decimal
+
+    Calculates the minimum fixed monthly payment needed in order pay off 
+    a credit card balance within 12 months. 
+    By a fixed monthly payment, we mean a single number which does not change 
+    each month, but instead is a constant amount that will be paid each month.
+    The monthly payment must be a multiple of $10 and is the same for all months. 
+    Notice that it is possible for the balance to become negative using 
+    this payment scheme, which is okay.
+    """
+    
+    MONTHS = 12
+    
+    monthlyInterestRate = annualInterestRate / 12.0
+    monthlyPayment = ((balance / MONTHS) // 10) * 10
+    endBalance = balance
+                   
+    while endBalance > 0 : 
+        #print "monthlyPayment :", monthlyPayment
+        for dummy_month in range(MONTHS):
+            endBalance = (endBalance - monthlyPayment) * (1 + monthlyInterestRate)
+        if endBalance > 0 :
+            monthlyPayment += 10
+            endBalance = balance
+            
+    print "Lowest Payment:", monthlyPayment
+    
+def payment12(balance, annualInterestRate) :
+    """
+    balance : float, outstanding balance on the credit card
+    annualInterestRate : float, annual interest rate as a decimal
+
+    Calculates the minimum fixed monthly payment needed in order pay off 
+    a credit card balance within 12 months. 
+    By a fixed monthly payment, we mean a single number which does not change 
+    each month, but instead is a constant amount that will be paid each month.
+    The monthly payment WILL NOT BE LONGER a multiple of $10, 
+    but is the same for all months. 
+    Notice that it is possible for the balance to become negative using 
+    this payment scheme, which is okay.
+    """
+    
+    MONTHS = 12
+    
+    monthlyInterestRate = float(annualInterestRate) / MONTHS
+    minMonthlyPayment = (balance / MONTHS)
+    maxMonthlyPayment = (balance * (1 + monthlyInterestRate) ** MONTHS) / MONTHS
+    endBalance = balance
+    epsilon = 0.01                   
+    
+    monthlyPayment = (maxMonthlyPayment+minMonthlyPayment)/2
+    
+    while abs(endBalance) > epsilon : 
+        #print "monthlyPayment :", monthlyPayment
+        for dummy_month in range(MONTHS):
+            endBalance = (endBalance - monthlyPayment) * (1 + monthlyInterestRate)
+        if abs(endBalance) > epsilon :
+            if endBalance > 0 :
+                minMonthlyPayment = monthlyPayment
+            else :
+                maxMonthlyPayment = monthlyPayment
+            monthlyPayment = (maxMonthlyPayment+minMonthlyPayment)/2
+            endBalance = balance
+            
+            
+    print "Lowest Payment:", round(monthlyPayment, 2)
+    
+#payment12(balance, annualInterestRate)    
+payment12(320000, 0.2)
+payment12(999999, 0.18)
