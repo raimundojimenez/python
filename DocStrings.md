@@ -1,4 +1,5 @@
 you'll see function definitions that look like this:
+
 def a(x):
    '''
    x: int or float.
@@ -12,4 +13,5 @@ def myFunction(argument):
    is going to return.
    """
    < Code for your function (the body of the function) goes here >
+   
 As you begin coding your own functions, we strongly encourage you to document all your functions by using properly-formatted docstrings!
