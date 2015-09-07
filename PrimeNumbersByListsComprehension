@@ -1,0 +1,25 @@
+# Cálculo de números primos
+n = 1000
+numbers = range(2,n)
+results = list()
+
+while len(numbers)>0:
+    results.append(numbers.pop(0))
+    # print "Results: ", results
+    extract = [x for x in range(len(numbers)) if numbers[x]%results[-1]==0]
+    extract.reverse()
+    # print "Extraemos : ", extract
+    for i in extract:
+        #numbers.pop([x for x in range(len(numbers)) if numbers[x]%results[-1]==0])
+        numbers.pop(i)
+
+print len(results)
+print "Numeros primos : ", results
+
+---
+
+top = 1000
+noprimes = [j for i in range(2, sqr(top)) for j in range(i*2, top, i)]
+primes = [x for x in range(2, top) if x not in noprimes]
+print primes
+
