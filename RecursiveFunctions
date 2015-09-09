@@ -1,0 +1,52 @@
+def recurPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    if exp == 0:
+        return 1
+    elif exp == 1:
+        return base
+    return (base*recurPower(base, exp-1))
+
+def recurPowerNew(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+
+    returns: int or float; base^exp
+    '''
+    # Your code here
+    if exp == 0:
+        return 1
+    elif (exp %2 == 1):
+        return base * recurPowerNew(base, exp-1)
+    return recurPowerNew(base * base, exp / 2)
+    
+def gcdIter(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+    # Your code here
+    for i in range(min(a,b)+1, 1, -1):
+        if (a%i == 0 and b%i == 0):
+            return i
+    return 1
+    
+def gcdRecur(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    
+    Utiliza el algoritmo de Euclides
+    '''
+    # Your code here
+    if b == 0:
+       return a
+    return gcdRecur(b, a%b)
