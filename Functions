@@ -148,3 +148,19 @@ def payment12(balance, annualInterestRate) :
 #payment12(balance, annualInterestRate)    
 payment12(320000, 0.2)
 payment12(999999, 0.18)
+
+# Radiation Exposure
+def f(x):
+    import math
+    return 10*math.e**(math.log(0.5)/5.27 * x)
+    
+def radiationExposure(start, stop, step):
+    count = 0
+    i = start
+    while i < stop:
+        count += f(i)*step
+        i += step
+    return count
+
+###
+
