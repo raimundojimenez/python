@@ -206,4 +206,28 @@ def getAvailableLetters(lettersGuessed):
         availableLetters += l
     return availableLetters
 
+def sharp(x):
+    """
+    (int) -> int
+    x# = ((((((2 ^ 3) ^ 4) ^ 5)  ...)  ...)     x-1) ^  x)
+    """
+    assert type(x)==int, "Argument should be an int"
+    assert x>=2, "Argument should be >=2"
+    if x == 2:
+        return 2
+    else:
+        return sharp(x-1) ** x
 
+def ndigits(x):
+    """
+    (int) -> int
+    This function should return the number of digits in the integer x.
+    """
+    assert type(x)==int, "Argument should be an int"
+    if x<0: 	# Check for negative ints
+        x=-x
+    if x<10:
+        return 1
+    else:
+        return 1 + ndigits(x / 10)
+        
