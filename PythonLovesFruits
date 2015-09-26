@@ -1,0 +1,56 @@
+
+def nfruits(aDict, aStr):
+    '''
+    "nfruits" takes two arguments:
+    i) A dictionary containing type of fruit and its quantity initially with 
+    Python when he leaves home (length < 10)
+    ii) A string pattern of the fruits eaten by Python on his journey as observed by Cobra.
+    This function should return the maximum quantity out of the different types of fruits 
+    that is available with Python when he has reached the campus. Paste your Python code 
+    for this function in the appropriate space below. Write 'NA' if you are unable to design 
+    this function.
+    '''
+    consumedL = set([]) # Almacenamos las consumidas si no vamos a comprar más de ellas
+    for fruitconsumed in aStr:
+        for fruit in aDict.keys():
+            if fruit == fruitconsumed:
+                aDict[fruit] -= 1
+            else:
+                if not fruit in consumedL: ## No compramos de las que ya hemos consumido
+                    aDict[fruit] += 1
+        consumedL.add(fruitconsumed) 
+        print aDict
+    return max(aDict.values())
+
+print nfruits({'A': 1, 'B': 2, 'C': 3}, \
+              'AC')
+print nfruits({'A': 5, 'B': 7, 'C': 8, 'D': 11, 'E': 4}, \
+              'AAABBBEECAAABBAACCAADDBBAACDCAAABBBAEACCAEADABCB')
+              
+---
+
+
+def nfruits(aDict, aStr):
+    '''
+    "nfruits" takes two arguments:
+    i) A dictionary containing type of fruit and its quantity initially with 
+    Python when he leaves home (length < 10)
+    ii) A string pattern of the fruits eaten by Python on his journey as observed by Cobra.
+    This function should return the maximum quantity out of the different types of fruits 
+    that is available with Python when he has reached the campus. Paste your Python code 
+    for this function in the appropriate space below. Write 'NA' if you are unable to design 
+    this function.
+    '''
+    for fruitconsumed in aStr:
+        for fruit in aDict.keys(): 
+            if fruit == fruitconsumed: ## No compramos de la última consumida
+                aDict[fruit] -= 1
+            else:	
+                aDict[fruit] += 1
+        print aDict
+    return max(aDict.values())
+
+print nfruits({'A': 1, 'B': 2, 'C': 3}, \
+              'AC')
+print nfruits({'A': 5, 'B': 7, 'C': 8, 'D': 11, 'E': 4}, \
+              'AAABBBEECAAABBAACCAADDBBAACDCAAABBBAEACCAEADABCB')
