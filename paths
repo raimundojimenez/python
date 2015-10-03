@@ -1,0 +1,22 @@
+paths = [[x] for x in range(5)]
+items = range(5)
+print paths
+print items
+
+tmp = []
+
+for path in paths:
+    itmp = []
+    for item in items:
+        tpath = path[:]
+        tpath.append(item)
+        print tpath
+        itmp.append(tpath)
+        print itmp
+    tmp.extend(itmp)
+    print tmp
+    
+paths.extend(tmp)
+
+print paths
+
