@@ -207,3 +207,17 @@ to write
 the sum of x i from 0 to ∞, you could do:
 r'$\sum_{i=0}^\infty x_i$'
 
+---
+
+def myplot2():
+    plt.plot(upanodes, standard, '-r', label='targeted_order')
+    plt.plot(upanodes, fast, '-b', label='fast_targeted_order')
+    plt.legend(loc='upper left')
+    plt.title('Fast_Targeted_Order vs Targeted_Order in Desktop Python')
+    plt.xlabel('Number of Nodes, m=5')
+    plt.ylabel('Execution time')
+    plt.text(50, .025, r'$UPA\ graphs\ with\ m=5$')
+    plt.show()
+    
+---
+
