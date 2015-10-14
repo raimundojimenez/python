@@ -1,0 +1,12 @@
+#!/usr/bin/python
+str = "this is string example....wow!!!";
+print "Encoded String: " + str.encode('base64','strict')
+
+>>> import base64
+>>> texto = "Prueba de codificación BASE64!"
+>>> textoCodificado = base64.encodestring(texto)
+>>> textoCodificado
+'UHJ1ZWJhIGRlIGNvZGlmaWNhY2nDs24gQkFTRTY0IQ==\n'
+>>> base64.decodestring(textoCodificado)
+'Prueba de codificación BASE64!'
+
