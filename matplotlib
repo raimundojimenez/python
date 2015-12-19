@@ -1,3 +1,14 @@
+import pylab
+pylab.plot(range(NUMSTEPS),rabbits,'g',label='Rabbits')
+pylab.plot(range(NUMSTEPS),foxes,'r',label='Foxes')
+pylab.legend(loc='upper right')
+pylab.title('Rabbits vs Foxes')
+pylab.xlabel('Time')
+pylab.ylabel('Population')
+pylab.show()
+
+---
+
 import matplotlib.pyplot as plt
 plt.plot([1,2,3,4])  # Take this data as 'y' values
 plt.ylabel('some numbers')
